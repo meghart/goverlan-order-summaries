@@ -1,180 +1,84 @@
 <p id="notice"><%= notice %></p>
+<%= link_to order_summaries_path, :class => "btn btn-xs btn-default" do %>
+	<i class="fa fa-arrow-left fa-fw"></i>&nbsp;Back
+<% end %>
+<br />
 <h1>Order Summary View</h1>
-<div class="row-fluid">
-<div class="table-responsive">
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Invoice Number</th>
-      <th>Account Name</th>
-      <th>Salesforce URL</th>
-      <th>End-User Email</th>
-      <th>Accounts Payable / Reseller Email</th>
-      <th>Purchase Type</th>
-      <th>Product</th>
-      <th>Qty</th>
-      <th>Activation</th>
-      <th>SUP/UPG Start</th>
-      <th>SUP/UPG End</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td><%= @order_summary.invoice %></td>
-      <td><%= @order_summary.account_name %></td>
-      <td><%= @order_summary.salesforce_url %></td>
-      <td><%= @order_summary.email %></td>
-      <td><%= @order_summary.reseller %></td>
-      <td><%= @order_summary.purchase_type %></td>
-      <td><%= @order_summary.product %></td>
-      <td><%= @order_summary.quantity %></td>
-      <td><%= @order_summary.activation %></td>
-      <td><%= @order_summary.support_start %></td>
-      <td><%= @order_summary.support_end %></td>
-      <td><%= link_to 'Edit', edit_order_summary_path(@order_summary) %></td>
-    </tr>
-  </tbody>
-</table>
-</div>
-<%= link_to 'Back', order_summaries_path %>
-<br />
+<div class="row">
+  <div class="col-md-4">
+  	<h6>Invoice Number:</h6>
+  	<h5><%= @order_summary.invoice %></h5>
+  </div>
+  <div class="col-md-4">
+  	<h6>Salesforce URL:</h6>
+  	<h5><%= @order_summary.salesforce_url %></h5>
+  </div>
+  <div class="col-md-4">
+    <h6>Account Name:</h6>
+    <h5><%= @order_summary.account_name %></h5>
+  </div>
 </div>
 <br />
+<div class="row">
+  <div class="col-md-4">
+  	<h6>End-User Email:</h6>
+  	<h5><%= @order_summary.email %></h5>
+  </div>
+  <div class="col-md-4">
+  	<h6>Accounts Payable / Reseller Email:</h6>
+  	<h5><%= @order_summary.reseller %></h5>
+  </div>
+  <div class="col-md-4">
+    <h6>Purchase Type:</h6>
+    <h5><%= @order_summary.purchase_type %></h5>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-md-4">
+  	<h6>Product:</h6>
+  	<h5><%= @order_summary.product %></h5>
+  </div>
+  <div class="col-md-4">
+  	<h6>Quantity</h6>
+  	<h5><%= @order_summary.quantity %></h5>
+  </div>
+  <div class="col-md-4">
+    <h6>Activation</h6>
+    <h5><%= @order_summary.activation %></h5>
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-md-4">
+  	<h6>SUP/UPG Start</h6>
+  	<h5><%= @order_summary.support_start %></h5>
+  </div>
+  <div class="col-md-4">
+  	<h6>SUP/UPG End</h6>
+  	<h5><%= @order_summary.support_end %></h5>
+  </div>
+  <div class="col-md-4">
+  	&nbsp;
+  </div>
+</div>
+<br />
+<%= link_to edit_order_summary_path(@order_summary), :class => "btn btn-sm btn-success" do %>
+	<i class="fa fa-pencil fa-fw"></i>&nbsp;Edit
+<% end %>
+<br />
+<br />
+<div class="row">
+	<h3>Email Preview</h3>
+	<p>The below content is for review purposes only and is not directly editable. Please make any edits using the <strong>Edit button</strong> in the above display.</p>
+	<br />
+</div>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<style type="text/css">
-a:link {
-	color: #6699FF;
-	text-decoration: underline;
-}
-.Normal_Text {
-	border-style: none;
-	border-collapse: collapse;
-	font-size: 12pt;
-	font-family: Calibri, sans-serif;
-}
-.auto-style22 {
-	text-align: center;
-	font-family: Calibri, "sans serif";
-	font-size: 12pt;
-}
-.Side_Notes {
-	color: #515151;
-	font-family: Calibri;
-	font-size: 12pt;
-}
-.auto-style28 {
-	border-style: none;
-	border-collapse: collapse;
-	font-size: 12pt;
-	font-family: Calibri, sans-serif;
-	text-align: right;
-}
-.auto-style30 {
-	background-color: #E1E1E1;
-}
-.Footer_Email_PJTechnologies {
-	color: #808080;
-	font-size: 9pt;
-	font-family: Calibri;
-}
-.newStyle1 {
-	font-family: Calibri, sans-serif;
-	font-size: 14pt;
-	font-weight: bold;
-}
-.newStyle2 {
-	border-style: none;
-	border-collapse: collapse;
-	font-family: Calibri, sans-serif;
-	font-size: 13pt;
-	font-weight: bold;
-}
-.auto-style36 {
-	font-size: 18pt;
-	font-family: Calibri;
-	font-weight: bold;
-	text-align: center;
-}
-.auto-style37 {
-	border-top: 1px dotted #808080;
-	text-align: center;
-	font-family: Calibri;
-	font-size: 12pt;
-}
-.auto-style41 {
-	text-align: justify;
-}
-.SubCat_Header3 {
-	border-bottom-style: solid;
-	border-bottom-color: #A5D068;
-	border-bottom-width: 2px;
-	text-transform: uppercase;
-	font-weight: bold;
-	color: #515151;
-	font-family: Calibri;
-	font-size: 12pt;
-	text-align: center;
-}
-.Product_Table2 {
-	border: thin solid #CCCCCC;
-	box-shadow: 0px 0px 0px 0px #B5AEB5;
-	background-color: #f5f5f5;
-}
-.auto-style42 {
-	border-right: 1px dotted #808080;
-	border-top: 1px dotted #808080;
-	font-size: 12pt;
-	font-family: Calibri, sans-serif;
-	text-align: center;
-}
-.auto-style43 {
-	border-style: none;
-	border-collapse: collapse;
-	font-size: 12pt;
-	font-family: Calibri, sans-serif;
-	color: #000000;
-}
-.auto-style40 {
-	font-weight: normal;
-	font-size: 12pt;
-}
-.auto-style44 {
-	font-weight: normal;
-	font-size: 12pt;
-}
-.auto-style45 {
-	border-right: 1px dotted #808080;
-	text-align: center;
-	font-family: Calibri, "sans serif";
-	font-size: 12pt;
-}
-.auto-style49 {
-	border-width: 0px;
-}
-.auto-style50 {
-	border-collapse: collapse;
-	border: 1px solid #F0F0F0;
-}
-.Main_Info_Text {
-	font-family: Calibri;
-	font-size: 14pt;
-}
-.auto-style10 {
-	font-family: Calibri;
-}
-.auto-style17 {
-	border-top-style: solid;
-	border-width: 1px;
-	border-color: #A5D068;
-}
-</style>
 </head>
 
 <body>
@@ -205,7 +109,7 @@ a:link {
 <br />
 <table align="center" bgcolor="#f5f5f5" cellpadding="10" cellspacing="0" style="width: 100%" class="Product_Table2">
 <tr align="center" class="auto-style36">
-<td align="center" colspan="2" ><span class="auto-style44"> Purchased: <b><%= @order_summary.quantity %> <%= @order_summary.product %></b> Operator License(s)</span> <br />
+<td align="center" colspan="2" ><span class="auto-style44"> Purchased: <b><%= @order_summary.quantity %> <%= @order_summary.product %></b> Operator Licenses</span> <br />
   <span class="newStyle1">Activation Code: <%= @order_summary.activation  %></span> <br />
   <br />
   <span class="newStyle1">Support & Upgrade Coverage on all licenses: <%= @order_summary.support_start %> to <%= @order_summary.support_end %></span> <br />

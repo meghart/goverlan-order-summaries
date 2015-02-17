@@ -11,43 +11,65 @@
     </div>
   <% end %>
   <form>
-    <div class="form-group">
-      <%= f.text_field :invoice, :placeholder => "Invoice Number", :class => "form-control" %>
+    <div class="row marginTop25">
+      <div class="form-group col-md-6">
+        <%= f.text_field :invoice, :placeholder => "Invoice Number", :class => "form-control" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.text_field :account_name, :placeholder => "Account Name", :class => "form-control" %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.text_field :account_name, :placeholder => "Account Name", :class => "form-control" %>
+    
+    <div class="row marginTop25">
+      <div class="form-group col-md-6">
+        <%= f.text_field :salesforce_url, :placeholder => "Salesforce URL", :class => "form-control" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.email_field :email, :placeholder => "End-user Email", :class => "form-control" %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.text_field :salesforce_url, :placeholder => "Salesforce URL", :class => "form-control" %>
+    
+    <div class="row marginTop25">
+      <div class="form-group col-md-6">
+        <%= f.email_field :reseller, :placeholder => "Accounts Payable / Reseller Email", :class => "form-control" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= f.text_field :activation, :placeholder => "Activation Code", :class => "form-control" %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.email_field :email, :placeholder => "End-user Email", :class => "form-control" %>
+    
+    <div class="row marginTop25">
+      <div class="form-group col-md-3">
+        <%= f.label :purchase_type, :class => "control-label" %>
+        <%= f.select(:purchase_type, options_for_select([['Purchase', 'Purchase'], ['Upgrade', 'Upgrade'], ['Support Purchase', 'Support Purchase'], ['Support Renew', 'Support Renew']]), {include_blank: true}, :class => "form-control", :id => "select") %>
+      </div>
+      <div class="form-group col-md-4 col-md-offset-1">
+        <%= f.label :product, :class => "control-label" %>
+        <%= f.select(:product, options_for_select([['Remote Control', 'Remote Control'], ['Admin & Diagnostics', 'Admin & Diagnostics'], ['Scope Actions', 'Scope Actions'], ['Suite', 'Suite'], ['Support', 'Support'], ['Upgrade Coverage', 'Upgrade Coverage']]), {include_blank: true}, :class => "form-control", :id => "select") %>
+      </div>
+      <div class="form-group col-md-3 col-md-offset-1">
+        <%= f.label :quantity, :class => "control-label" %>
+        <%= f.select(:quantity, options_for_select(Array(0..100)), {}, :class => "form-control", :id => "select") %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.email_field :reseller, :placeholder => "Accounts Payable / Reseller Email", :class => "form-control" %>
+    
+    <div class="row marginTop25">
+      <div class="form-group col-md-4">
+        <%= f.label "Support Start", :class => "control-label" %>
+        <%= f.date_select :support_start, {}, :class => "form-control", :id => "select" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= f.label "Support End", :class => "control-label" %>
+        <%= f.date_select :support_end, {}, :class => "form-control", :id => "select" %>
+      </div>
+      <div class="col-md-4">
+        &nbsp;
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label "Purchase Type" %><br>
-      <%= f.select(:purchase_type, options_for_select([['Purchase', 'Purchase'], ['Upgrade', 'Upgrade'], ['Support Purchase', 'Support Purchase'], ['Support Renew', 'Support Renew']]), :class => "form-control") %>
-    </div>
-    <div class="form-group">
-      <%= f.label "Product" %><br>
-      <%= f.select(:product, options_for_select([['Remote Control', 'Remote Control'], ['Admin & Diagnostics', 'Admin & Diagnostics'], ['Scope Actions', 'Scope Actions'], ['Suite', 'Suite'], ['Support', 'Support'], ['Upgrade Coverage', 'Upgrade Coverage']]), :class => "form-control") %>
-    </div>
-    <div class="form-group">
-      <%= f.label :quantity %>: <%= f.select(:quantity, options_for_select(Array(0..100)), :class => "form-control") %>
-    </div>
-    <div class="form-group">
-      <%= f.text_field :activation, :placeholder => "Activation Code", :class => "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :support_start %>: <%= f.date_select :support_start, :class => "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :support_end %>: <%= f.date_select :support_end, :class => "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.submit :class => "btn btn-primary" %>
-    </div>
+    
+    <br />
+      <div class="form-group">
+        <%= f.submit :class => "btn btn-primary" %>
+      </div>
   </form>
 <% end %>
