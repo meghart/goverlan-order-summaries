@@ -1,7 +1,9 @@
 ActionMailer::Base.smtp_settings = {
-    :address => "smtp.gmail.com",
+    :user_name => 'app34086970@heroku.com',
+    :password => 'rfdmgyac',
+    :domain => 'goverlan-order-summaries.herokuapp.com',
+    :address => 'smtp.sendgrid.net',
     :port => 587,
-    :user_name => ENV['meghan.hartman09@gmail.com'],
-    :password => ENV['16qcr*F3'],
-    :authentication => "plain"
+    :authentication => :plain,
+    :enable_starttls_auto => true
 }
