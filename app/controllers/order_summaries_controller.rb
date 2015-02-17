@@ -4,7 +4,7 @@ class OrderSummariesController < ApplicationController
   # GET /order_summaries
   # GET /order_summaries.json
   def index
-    @order_summaries = OrderSummary.all
+    @order_summaries = OrderSummary.all.order(:account_name)
   end
 
   # GET /order_summaries/1
