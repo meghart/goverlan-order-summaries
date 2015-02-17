@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<style type="text/css">
+a:link {
+	color: #6699FF;
+	text-decoration: underline;
+}
+.Normal_Text {
+	border-style: none;
+	border-collapse: collapse;
+	font-size: 12pt;
+	font-family: Calibri, sans-serif;
+}
+.auto-style22 {
+	text-align: center;
+	font-family: Calibri, "sans serif";
+	font-size: 12pt;
+}
+.Side_Notes {
+	color: #515151;
+	font-family: Calibri;
+	font-size: 12pt;
+}
+.auto-style28 {
+	border-style: none;
+	border-collapse: collapse;
+	font-size: 12pt;
+	font-family: Calibri, sans-serif;
+	text-align: right;
+}
+.auto-style30 {
+	background-color: #E1E1E1;
+}
+.Footer_Email_PJTechnologies {
+	color: #808080;
+	font-size: 9pt;
+	font-family: Calibri;
+}
+.newStyle1 {
+	font-family: Calibri, sans-serif;
+	font-size: 14pt;
+	font-weight: bold;
+}
+.newStyle2 {
+	border-style: none;
+	border-collapse: collapse;
+	font-family: Calibri, sans-serif;
+	font-size: 13pt;
+	font-weight: bold;
+}
+.auto-style36 {
+	font-size: 18pt;
+	font-family: Calibri;
+	font-weight: bold;
+	text-align: center;
+}
+.auto-style37 {
+	border-top: 1px dotted #808080;
+	text-align: center;
+	font-family: Calibri;
+	font-size: 12pt;
+}
+.auto-style41 {
+	text-align: justify;
+}
+.SubCat_Header3 {
+	border-bottom-style: solid;
+	border-bottom-color: #A5D068;
+	border-bottom-width: 2px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #515151;
+	font-family: Calibri;
+	font-size: 12pt;
+	text-align: center;
+}
+.Product_Table2 {
+	border: thin solid #CCCCCC;
+	box-shadow: 0px 0px 0px 0px #B5AEB5;
+	background-color: #f5f5f5;
+}
+.auto-style42 {
+	border-right: 1px dotted #808080;
+	border-top: 1px dotted #808080;
+	font-size: 12pt;
+	font-family: Calibri, sans-serif;
+	text-align: center;
+}
+.auto-style43 {
+	border-style: none;
+	border-collapse: collapse;
+	font-size: 12pt;
+	font-family: Calibri, sans-serif;
+	color: #000000;
+}
+.auto-style40 {
+	font-weight: normal;
+	font-size: 12pt;
+}
+.auto-style44 {
+	font-weight: normal;
+	font-size: 12pt;
+}
+.auto-style45 {
+	border-right: 1px dotted #808080;
+	text-align: center;
+	font-family: Calibri, "sans serif";
+	font-size: 12pt;
+}
+.auto-style49 {
+	border-width: 0px;
+}
+.auto-style50 {
+	border-collapse: collapse;
+	border: 1px solid #F0F0F0;
+}
+.Main_Info_Text {
+	font-family: Calibri;
+	font-size: 14pt;
+}
+.auto-style10 {
+	font-family: Calibri;
+}
+.auto-style17 {
+	border-top-style: solid;
+	border-width: 1px;
+	border-color: #A5D068;
+}
+</style>
+</head>
+
+<body>
+<table cellpadding="15" cellspacing="0"  style="width: 720px" class="auto-style50">
+<tr>
+<td style="width: 740px">
+<div class="auto-style22">
+<a href="http://www.pjtec.com">
+<img alt="Goverlan- Order Summary" src="http://assets.goverlan.com/email_templates/header_goverlan_ordersummary.png" class="auto-style49" longdesc="Goverlan- Order Summary" /></a>
+</div>
+<span>
+<br />
+<br />
+<table style="width: 100%" cellspacing="9">
+<tr><td> </td></tr>
+<tr>
+<td style="height: 32px"><p class="newStyle1">To: <%= @order_summary.account_name %></p></td>
+<td style="height: 32px"><p class="auto-style28">Transaction ID: <strong><%= @order_summary.invoice %></strong></p>
+</td>
+</tr>
+<tr><td> </td></tr>
+<tr>
+<td colspan="2">
+<p class="Normal_Text"> Thank you for your Goverlan order. Your order details are shown below. Please keep this information for your records.</p>
+</td>
+</tr>
+</table>
+<br />
+<table align="center" bgcolor="#f5f5f5" cellpadding="10" cellspacing="0" style="width: 100%" class="Product_Table2">
+<tr align="center" class="auto-style36">
+<td align="center" colspan="2" ><span class="auto-style44"> Purchased: <%= @order_summary.quantity %> <%= @order_summary.product %> Operator Licenses</span> <br />
+  <span class="newStyle1"><%= @order_summary.product %> Activation Code: <%= @order_summary.activation  %></span> <br />
+  <br />
+  <span class="newStyle1">Support & Upgrade Coverage on all licenses: <%= @order_summary.support_start %> to <%= @order_summary.support_end %></span> <br />
+  <br />
+  <span class="auto-style40">FREE Add-on Modules: <a href="http://www.goverlan.com/pdf/Goverlan-Central-Server-Overview.pdf">Goverlan Central Server</a> and <a href="http://www.goverlan.com/product_overview.php#wmix-module">WMIX</a></span></td>
+</tr>
+</table>
+<br />
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="auto-style10" style="width: 720px">
+<tr>
+<td align="center"><span class="newStyle2">To download the latest 
+version of Goverlan,
+<a href="http://www.goverlan.com/download_area.php">click here.</a></span></td>
+</tr>
+<tr>
+<td align="center"><span class="Normal_Text">To contact us, 
+call (888) 330 4188 / +1 (786) 268 3517 [int'l] or
+<a href="mailto:sales@goverlan.com">email</a> us.</span></td>
+</tr>
+</table>
+<br />
+<br />
+<table align="center" cellpadding="4" class="auto-style41" style="width: 696px; height: 14px;" cellspacing="6">
+<tr>
+<td  style="height: 31px"> <p  class="SubCat_Header3">GOVERLAN SUPPORT & UPGRADE COVERAGE</p> </td>
+</tr>
+<tr>
+<td bgcolor="" style="height: 54px"><p class="Side_Notes">If Support and/or Upgrade coverage is not purchased, fees apply for version upgrades and support is offered at per incident rates: $40 USD by email, $80 USD by phone or live chat. Clients always have access to the Knowledge Base, Goverlan forum or User Guides for technical support. More details at <a href="http://www.goverlan.com/maintenance.php">Support / Upgrade Coverage</a>.</p></td>
+</tr>
+</table>
+<br />
+<table cellpadding="4" cellspacing="10" style="width: 100%">
+<tr>
+<td style="width: 50%; height: 34px;"> <p class="SubCat_Header3" >
+<span>Activations & Transfers</span></p> </td>
+<td  style="width: 50%; height: 34px;"> <p class="SubCat_Header3">Support & Updates</p></td>
+</tr>
+<tr>
+<td class="auto-style41" style="width: 50%">
+<p><span  class="Side_Notes">For instructions, see
+<a href="http://www.goverlan.com/activation.php?page=software_activation">Activation</a>. Once 
+activated, you can
+<a href="http://www.goverlan.com/activation?page=activation_transfer">
+transfer</a> the activation to another machine. If your machine is 
+reimaged without having done the transfer, please contact
+<a href="mailto:sales@goverlan.com">Sales</a> so that we can adjust your 
+activation count.</span></p>
+</td>
+<td class="auto-style41" style="width: 50%">
+<p><span  class="Side_Notes">For technical assistance, go to our support page at  <a href="http://www.goverlan.com/support.php">goverlan.com/support</a>. For product updates, from the COMMAND tab, go to HELP > ONLINE ACCESS > CHECK FOR UPDATES.<br /><br /></span></p>
+</td>
+</tr>
+</table>
+<br />
+<table align="center" cellpadding="4" class="auto-style41" style="width: 696px; height: 14px;" cellspacing="6">
+<tr>
+<td  style="height: 31px"> <p  class="SubCat_Header3">QUICK TIPS & RESOURCES</p> </td>
+</tr>
+<tr>
+<td bgcolor="" style="height: 54px">
+<ul>
+<li>
+<span class="Side_Notes"><a href="http://www.goverlan.com/userguides/?guide=76">Getting Started Guide</a><br /></span>
+</li>
+<li>
+<span class="Side_Notes"><a href="https://www.youtube.com/user/Goverlan">YouTube Tutorials</a></span>
+</li>
+<li>
+<span class="Side_Notes"><a href="http://www.goverlan.com/it_admin_blog.php">IT Admin Blog</a> for time-saving, unique features, tutorials, and competitor product studies<br /></span>
+</li>
+<li>
+<span class="Side_Notes">How some clients use Goverlan(see <a href="http://www.goverlan.com/case_studies.php">Case Studies</a>)<br /></span>
+<br />
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<br />
+<table align="center" border="0" cellpadding="7" cellspacing="0" class="auto-style30">
+<tr>
+<td>
+<p class="Footer_Email_PJTechnologies">This message is intended exclusively for its addressee and may contain information that is confidential and protected by professional privilege. If you are not the intended recipient you are hereby notified that any dissemination, copy or disclosure of this communication is strictly prohibited by law. If this message has been received in error, please immediately notify us via e-mail and delete it.<br/><br/>2015 Copyright  Goverlan, Inc.  All rights are reserved.    </p>
+</td>
+</tr>
+</table>
+</span>
+</td>
+</tr>
+</table>
+</body>
+
+</html>
