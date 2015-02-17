@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+#topbar-fixed {
+	background-color: #181818 !important;
+	height: 60px;
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	width: 100% !important;
+	z-index: 9990;
+}			
+#goverlan-grey {
+    position: fixed;
+    left: 15px;
+    top: 15px;
+    z-index: 9999;
+}
+.container {
+    margin-top: 75px;
+}
