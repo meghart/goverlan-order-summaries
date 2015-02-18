@@ -3,90 +3,108 @@
 <% end %>
 <br />
 <h1>Order Summary View</h1>
-<div class="row marginTop25">
-  <div class="col-md-4">
-    <h6>STATUS</h6>
-    <h5><strong><%= @order_summary.status %></strong></h5>
+<div class="row">
+  <div class="col-lg-4">
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+        	<h3 class="panel-title">Status</h3>
+        </div>
+        <div class="panel-body">
+        	<strong><%= @order_summary.status %></strong>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        	Invoice Number
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.invoice %>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        	Date Created
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.created_at.strftime("%x") %>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+    	<div class="panel-heading">
+        	Purchase Type
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.purchase_type %>
+        </div>
+    </div>
   </div>
-  <div class="col-md-4">
-  	<h6>Invoice Number:</h6>
-  	<h5><%= @order_summary.invoice %></h5>
+  <div class="col-lg-4">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+        	<h3 class="panel-title">Account Name</h3>
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.account_name %>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        	Salesforce URL
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.salesforce_url %>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        	End-User Email
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.email %>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        	Accounts Payable / Reseller Email
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.reseller %>
+        </div>
+    </div>
   </div>
-  <div class="col-md-4">
-    <h6>Created Date</h6>
-    <h5><%= @order_summary.created_at.strftime("%x") %></h5>
-  </div>
-</div>
-<div class="row marginTop25">
-  <div class="col-md-4">
-    <h6>Account Name:</h6>
-    <h5><%= @order_summary.account_name %></h5>
-  </div>
-  <div class="col-md-4">
-  	<h6>Salesforce URL:</h6>
-  	<h5><%= @order_summary.salesforce_url %></h5>
-  </div>
-  <div class="col-md-4">
-    &nbsp;
-  </div>  
-</div>
-<br />
-<div class="row marginTop25">
-  <div class="col-md-4">
-  	<h6>End-User Email:</h6>
-  	<h5><%= @order_summary.email %></h5>
-  </div>
-  <div class="col-md-4">
-  	<h6>Accounts Payable / Reseller Email:</h6>
-  	<h5><%= @order_summary.reseller %></h5>
-  </div>
-  <div class="col-md-4">
-  	&nbsp;
-  </div>
-</div>
-<br />
-<div class="row marginTop25">
-  <div class="col-md-3">
-    <h6>Purchase Type:</h6>
-    <h5><%= @order_summary.purchase_type %></h5>
-  </div>
-  <div class="col-md-3">
-  	<h6>Product:</h6>
-  	<h5><%= @order_summary.product %></h5>
-  </div>
-  <div class="col-md-2">
-  	<h6>Quantity</h6>
-  	<h5><%= @order_summary.quantity %></h5>
-  </div>
-  <div class="col-md-4">
-    <h6>Activation</h6>
-    <h5><%= @order_summary.activation %></h5>
-  </div>
-</div>
-<br />
-<div class="row marginTop25">
-  <div class="col-md-4">
-  	<h6>SUP/UPG Start</h6>
-  	<h5><%= @order_summary.support_start %></h5>
-  </div>
-  <div class="col-md-4">
-  	<h6>SUP/UPG End</h6>
-  	<h5><%= @order_summary.support_end %></h5>
-  </div>
-  <div class="col-md-4">
-  	&nbsp;
-  </div>
-</div>
-<br />
-<div class="row marginTop25">
-  <div class="col-md-1">
-    <%= link_to "Edit", edit_order_summary_path(@order_summary), :class => "btn btn-default" %>
-  </div>
-  <div class="col-md-1">
-    <%= link_to "Send", { :controller => "order_summaries", :action => "send_order_summary_mail", :id => @order_summary.id }, :class => "btn btn-primary" %>
-  </div>
-  <div class="col-md-10">
-    &nbsp;
+  <div class="col-lg-4">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+        	<h3 class="panel-title">Product</h3>
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.quantity %>&nbsp;<%= @order_summary.product %>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        	Activation
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.activation %>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        	Support / UPG Term
+        </div>
+        <div class="panel-body">
+        	<%= @order_summary.support_start.strftime("%v") %> - <%= @order_summary.support_end.strftime("%v") %>
+        </div>
+    </div>
   </div>
 </div>
 <br />

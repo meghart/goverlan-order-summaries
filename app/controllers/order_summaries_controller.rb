@@ -10,7 +10,7 @@ class OrderSummariesController < ApplicationController
     if params[:search]
       @order_summaries = OrderSummary.search(params[:search]).order("created_at DESC").paginate(page: params[:page],:per_page => 10)
     else
-      @order_summaries = OrderSummary.order("created_at ASC").paginate(page: params[:page],:per_page => 10)
+      @order_summaries = OrderSummary.order(:status, created_at: :asc).paginate(page: params[:page],:per_page => 10)
     end
   end
 
