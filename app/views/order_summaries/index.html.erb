@@ -18,7 +18,7 @@
     <% @order_summaries.each do |order_summary| %>
     <tr>
       <td><%= order_summary.created_at.strftime("%x") %></td>
-      <td><%= order_summary.status %></td>
+      <td><strong><%= order_summary.status %></strong></td>
       <td><%= order_summary.invoice %></td>
       <td><%= order_summary.account_name %></td>
       <td><%= order_summary.salesforce_url %></td>

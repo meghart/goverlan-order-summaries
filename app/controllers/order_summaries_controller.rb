@@ -6,6 +6,7 @@ class OrderSummariesController < ApplicationController
   # GET /order_summaries.json
   def index
     @order_summaries = OrderSummary.all
+    
     if params[:search]
       @order_summaries = OrderSummary.search(params[:search]).order("created_at DESC").paginate(page: params[:page],:per_page => 10)
     else
@@ -21,6 +22,9 @@ class OrderSummariesController < ApplicationController
       
       OrderSummaryMailer.order_summary_email(@order_summary).deliver
       flash[:info] = "Order Summary has been sent!"
+      
+      @order_summary.update(:status => "Sent")
+      
       redirect_to root_path
     end
   end

@@ -3,22 +3,35 @@
 <% end %>
 <br />
 <h1>Order Summary View</h1>
-<div class="row">
+<div class="row marginTop25">
+  <div class="col-md-4">
+    <h6>STATUS</h6>
+    <h5><strong><%= @order_summary.status %></strong></h5>
+  </div>
   <div class="col-md-4">
   	<h6>Invoice Number:</h6>
   	<h5><%= @order_summary.invoice %></h5>
+  </div>
+  <div class="col-md-4">
+    <h6>Created Date</h6>
+    <h5><%= @order_summary.created_at.strftime("%x") %></h5>
+  </div>
+</div>
+<div class="row marginTop25">
+  <div class="col-md-4">
+    <h6>Account Name:</h6>
+    <h5><%= @order_summary.account_name %></h5>
   </div>
   <div class="col-md-4">
   	<h6>Salesforce URL:</h6>
   	<h5><%= @order_summary.salesforce_url %></h5>
   </div>
   <div class="col-md-4">
-    <h6>Account Name:</h6>
-    <h5><%= @order_summary.account_name %></h5>
-  </div>
+    &nbsp;
+  </div>  
 </div>
 <br />
-<div class="row">
+<div class="row marginTop25">
   <div class="col-md-4">
   	<h6>End-User Email:</h6>
   	<h5><%= @order_summary.email %></h5>
@@ -28,17 +41,20 @@
   	<h5><%= @order_summary.reseller %></h5>
   </div>
   <div class="col-md-4">
-    <h6>Purchase Type:</h6>
-    <h5><%= @order_summary.purchase_type %></h5>
+  	&nbsp;
   </div>
 </div>
 <br />
-<div class="row">
-  <div class="col-md-4">
+<div class="row marginTop25">
+  <div class="col-md-3">
+    <h6>Purchase Type:</h6>
+    <h5><%= @order_summary.purchase_type %></h5>
+  </div>
+  <div class="col-md-3">
   	<h6>Product:</h6>
   	<h5><%= @order_summary.product %></h5>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-2">
   	<h6>Quantity</h6>
   	<h5><%= @order_summary.quantity %></h5>
   </div>
@@ -48,7 +64,7 @@
   </div>
 </div>
 <br />
-<div class="row">
+<div class="row marginTop25">
   <div class="col-md-4">
   	<h6>SUP/UPG Start</h6>
   	<h5><%= @order_summary.support_start %></h5>
@@ -62,7 +78,7 @@
   </div>
 </div>
 <br />
-<div class="row">
+<div class="row marginTop25">
   <div class="col-md-1">
     <%= link_to "Edit", edit_order_summary_path(@order_summary), :class => "btn btn-default" %>
   </div>
