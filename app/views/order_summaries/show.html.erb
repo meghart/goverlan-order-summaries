@@ -108,6 +108,18 @@
   </div>
 </div>
 <br />
+<div class="row marginTop25">
+  <div class="col-md-1">
+    <%= link_to "Edit", edit_order_summary_path(@order_summary), :class => "btn btn-default" %>
+  </div>
+  <div class="col-md-1">
+    <%= link_to "Send", { :controller => "order_summaries", :action => "send_order_summary_mail", :id => @order_summary.id }, :class => "btn btn-primary" %>
+  </div>
+  <div class="col-md-10">
+    &nbsp;
+  </div>
+</div>
+<br />
 <h3>Email Preview</h3>
 <div class="panel panel-info marginTop25" style="width: 740px;">
   <div class="panel-heading">
