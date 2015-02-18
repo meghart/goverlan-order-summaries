@@ -37,6 +37,9 @@ gem 'spring',        group: :development
 #WWWhisper for user login
 gem 'rack-wwwhisper', '~> 1.0'
 
+#paginate table
+gem 'will_paginate', '~> 3.0.6'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

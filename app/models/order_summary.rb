@@ -1,6 +1,19 @@
 class OrderSummary < ActiveRecord::Base
-    # search query based on account_name
-	def self.search(query)
-	    where("cast(account_name as text) LIKE ?", "%#{query}%")
-	end
+    # search query
+    def self.search(query)
+        #return where('FALSE') if query.blank?
+        
+        #conditions = []
+        #search_columns = [ :account_name, :salesforce_url, :email, :invoice, :activation ]
+        
+        #query.split(' ').each do |word|
+            #search_columns.each do |column|
+                #conditions << " lower(#{column}) LIKE lower(#{sanitize("%#{word}%")}) "
+            #end
+        #end
+        
+        #conditions = conditions.join('OR')    
+        #self.where(conditions)
+        where("account_name LIKE ? or email LIKE ? or invoice LIKE ? activation LIKE ?", "%#{query}%", "%#{query}%" , "%#{query}%", "%#{query}%")
+    end
 end

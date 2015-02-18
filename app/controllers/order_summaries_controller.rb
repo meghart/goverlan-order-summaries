@@ -5,8 +5,9 @@ class OrderSummariesController < ApplicationController
   # GET /order_summaries
   # GET /order_summaries.json
   def index
-    @order_summaries = OrderSummary.order(sort_column + " " + sort_direction)
+    @order_summaries = OrderSummary.all
     @order_summaries = OrderSummary.search(params[:search])
+    @order_summaries = OrderSummary.order("account_name ASC").paginate(page: params[:page],:per_page => 10)
   end
 
   # GET /order_summaries/1
@@ -81,14 +82,6 @@ class OrderSummariesController < ApplicationController
   end
 
   private
-    def sort_column
-      OrderSummary.column_names.include?(params[:sort]) ? params[:sort] : "account_name"
-    end
-    
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-    end
-    
     # Use callbacks to share common setup or constraints between actions.
     def set_order_summary
       @order_summary = OrderSummary.find(params[:id])
