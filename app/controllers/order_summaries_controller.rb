@@ -10,6 +10,13 @@ class OrderSummariesController < ApplicationController
   # GET /order_summaries/1
   # GET /order_summaries/1.json
   def show
+    def send_order_summary_mail
+      @order_summary = OrderSummary.find(params[:id])
+      
+      OrderSummaryMailer.order_summary_email(@order_summary).deliver
+      flash[:notice] = "Order Summary has been sent."
+      redirect_to root_path
+    end
   end
 
   # GET /order_summaries/new
@@ -28,7 +35,7 @@ class OrderSummariesController < ApplicationController
 
     respond_to do |format|
       if @order_summary.save
-        OrderSummaryMailer.order_summary_email(@order_summary).deliver
+        #OrderSummaryMailer.order_summary_email(@order_summary).deliver
         format.html { redirect_to @order_summary, notice: 'Order summary was successfully created.' }
         format.json { render :show, status: :created, location: @order_summary }
       else
@@ -37,13 +44,13 @@ class OrderSummariesController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /order_summaries/1
   # PATCH/PUT /order_summaries/1.json
   def update
     respond_to do |format|
       if @order_summary.update(order_summary_params)
-        format.html { redirect_to @order_summary, notice: 'Order summary was successfully updated.' }
+        format.html { redirect_to @order_summary, notice: 'Order summary was successfully sent.' }
         format.json { render :show, status: :ok, location: @order_summary }
       else
         format.html { render :edit }

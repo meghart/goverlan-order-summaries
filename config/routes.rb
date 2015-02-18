@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :order_summaries
   root 'order_summaries#index'
+  
+  get :send_order_summary_mail, to: 'order_summaries#send_order_summary_mail', as: :send_order_summary_mail
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
