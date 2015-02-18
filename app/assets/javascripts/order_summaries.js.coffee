@@ -1,6 +1,18 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+#$(document).on "ready", ->
+#  alert("it works")
+#  if $("td:contains('Pending')").length
+#    @parent('tr').addClass 'warning'
+#    alert('hello')
+#  else
+#    alert('not found')
+
+$(document).bind 'DOMSubtreeModified', (e) ->
+  $('td:contains(\'Pending\')').parent().addClass 'warning'
+  return
+  
 $.rails.allowAction = (link) ->
   return true unless link.attr('data-confirm')
   $.rails.showConfirmDialog(link) # look bellow for implementations

@@ -58,3 +58,29 @@
 .navbar-inverse :-ms-input-placeholder {  
    color: #ffffff !important;  
 }
+.apple_pagination a:link { 
+  	color: #2196f3;
+}
+.apple_pagination a:visited { 
+ 	color: #2196f3;
+}
+.apple_pagination a:hover { 
+	background: none;
+	color: #2196f3;
+	text-decoration: underline;
+}
+.apple_pagination a:active { 
+  	color: #2196f3;
+}
+/*
+tr .pending {
+  background-color: #ffe0b2;
+}
+.table-hover > tbody > tr > td.pending:hover,
+.table-hover > tbody > tr > th.pending:hover,
+.table-hover > tbody > tr.warning:hover > td,
+.table-hover > tbody > tr:hover > .pending,
+.table-hover > tbody > tr.pending:hover > th {
+  background-color: #ffd699;
+}
+*/

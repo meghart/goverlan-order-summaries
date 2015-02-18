@@ -9,7 +9,7 @@ class OrderSummariesController < ApplicationController
     if params[:search]
       @order_summaries = OrderSummary.search(params[:search]).order("created_at DESC").paginate(page: params[:page],:per_page => 10)
     else
-      @order_summaries = OrderSummary.order("account_name ASC").paginate(page: params[:page],:per_page => 10)
+      @order_summaries = OrderSummary.order("created_at ASC").paginate(page: params[:page],:per_page => 10)
     end
   end
 
@@ -92,6 +92,6 @@ class OrderSummariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_summary_params
-      params.require(:order_summary).permit(:invoice, :account_name, :salesforce_url, :email, :reseller, :purchase_type, :product, :quantity, :activation, :support_start, :support_end)
+      params.require(:order_summary).permit(:invoice, :account_name, :salesforce_url, :email, :reseller, :purchase_type, :product, :quantity, :activation, :support_start, :support_end, :status)
     end
 end

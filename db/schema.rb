@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217163613) do
+ActiveRecord::Schema.define(version: 20150218174451) do
 
   create_table "order_summaries", force: true do |t|
     t.string   "account_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150217163613) do
     t.string   "activation"
     t.date     "support_start"
     t.date     "support_end"
+    t.string   "status"
   end
 
 end

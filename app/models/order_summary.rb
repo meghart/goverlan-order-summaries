@@ -4,7 +4,7 @@ class OrderSummary < ActiveRecord::Base
         return where('FALSE') if query.blank?
         
         conditions = []
-        search_columns = [ :account_name, :salesforce_url, :email, :invoice, :activation ]
+        search_columns = [ :account_name, :salesforce_url, :email, :invoice, :activation, :status ]
         
         query.split(' ').each do |word|
             search_columns.each do |column|

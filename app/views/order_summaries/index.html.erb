@@ -1,9 +1,10 @@
 <h1>List all order summaries</h1>
 <div class="table-responsive">
-<table class="table table-hover">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Date Created</th>
+      <th>STATUS</th>
       <th>Invoice Number</th>
       <th>Account Name</th>
       <th>Salesforce URL</th>
@@ -16,7 +17,8 @@
   <tbody>
     <% @order_summaries.each do |order_summary| %>
     <tr>
-      <td><%= order_summary.created_at %></td>
+      <td><%= order_summary.created_at.strftime("%x") %></td>
+      <td><%= order_summary.status %></td>
       <td><%= order_summary.invoice %></td>
       <td><%= order_summary.account_name %></td>
       <td><%= order_summary.salesforce_url %></td>
