@@ -1,10 +1,12 @@
 class OrderSummariesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :set_order_summary, only: [:show, :edit, :update, :destroy]
 
   # GET /order_summaries
   # GET /order_summaries.json
   def index
-    @order_summaries = OrderSummary.all.order(:account_name)
+    @order_summaries = OrderSummary.order(sort_column + " " + sort_direction)
+    @order_summaries = OrderSummary.search(params[:search])
   end
 
   # GET /order_summaries/1
@@ -14,7 +16,7 @@ class OrderSummariesController < ApplicationController
       @order_summary = OrderSummary.find(params[:id])
       
       OrderSummaryMailer.order_summary_email(@order_summary).deliver
-      flash[:notice] = "Order Summary has been sent."
+      flash[:info] = "Order Summary has been sent!"
       redirect_to root_path
     end
   end
@@ -36,7 +38,10 @@ class OrderSummariesController < ApplicationController
     respond_to do |format|
       if @order_summary.save
         #OrderSummaryMailer.order_summary_email(@order_summary).deliver
-        format.html { redirect_to @order_summary, notice: 'Order summary was successfully created.' }
+        format.html {
+          flash[:success] = "Order Summary Created!"
+          redirect_to @order_summary
+        }
         format.json { render :show, status: :created, location: @order_summary }
       else
         format.html { render :new }
@@ -50,7 +55,10 @@ class OrderSummariesController < ApplicationController
   def update
     respond_to do |format|
       if @order_summary.update(order_summary_params)
-        format.html { redirect_to @order_summary, notice: 'Order summary was successfully sent.' }
+        format.html { 
+          flash[:warning] = "Order Summary Updated!"
+          redirect_to @order_summary
+        }
         format.json { render :show, status: :ok, location: @order_summary }
       else
         format.html { render :edit }
@@ -64,12 +72,23 @@ class OrderSummariesController < ApplicationController
   def destroy
     @order_summary.destroy
     respond_to do |format|
-      format.html { redirect_to order_summaries_url, notice: 'Order summary was successfully destroyed.' }
+      format.html {
+        flash[:danger] = "Order Summary Destroyed!"
+        redirect_to order_summaries_url
+      }
       format.json { head :no_content }
     end
   end
 
   private
+    def sort_column
+      OrderSummary.column_names.include?(params[:sort]) ? params[:sort] : "account_name"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_order_summary
       @order_summary = OrderSummary.find(params[:id])

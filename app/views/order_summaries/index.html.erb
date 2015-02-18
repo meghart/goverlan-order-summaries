@@ -3,14 +3,12 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Invoice Number</th>
-      <th>Account Name</th>
-      <th>Salesforce URL</th>
-      <th>End-User Email</th>
-      <th>Purchase Type</th>
-      <th>Product</th>
-      <th>Qty</th>
-      <th>SUP/UPG End</th>
+      <th><%= sortable "created_at", "Date Created" %></th>
+      <th><%= sortable "invoice", "Invoice Number" %></th>
+      <th><%= sortable "account_name", "Account Name" %></th>
+      <th><%= sortable "salesforce_url", "Salesforce URL" %></th>
+      <th><%= sortable "email", "End-User Email" %></th>
+      <th><%= sortable "purchase_type", "Purchase Type" %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,14 +16,12 @@
   <tbody>
     <% @order_summaries.each do |order_summary| %>
     <tr>
+      <td><%= order_summary.created_at %></td>
       <td><%= order_summary.invoice %></td>
       <td><%= order_summary.account_name %></td>
       <td><%= order_summary.salesforce_url %></td>
       <td><%= order_summary.email %></td>
       <td><%= order_summary.purchase_type %></td>
-      <td><%= order_summary.product %></td>
-      <td><%= order_summary.quantity %></td>
-      <td><%= order_summary.support_end %></td>
       <td>
         <%= link_to order_summary, :class => "btn btn-xs btn-default" do %>
         	<i class="fa fa-eye fa-fw"></i>

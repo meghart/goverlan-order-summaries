@@ -14,11 +14,36 @@
 	color: #ffffff;
 	text-decoration: none !important;
 }
-
 .marginTop25 {
 	margin-top: 25px;
 }
-
 .modal .modal-dialog {
 	margin-top: 15%;
 }
+th a:link { 
+  color: #333333;
+}
+th a:visited { 
+  color: #333333;
+}
+th a:hover { 
+	background: none;
+  color: #cccccc;
+  text-decoration: none;
+}
+th a:active { 
+  color: #333333;
+}
+/*.table th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.table th .asc {
+  background-image: url(/images/arrows_up.png);
+}
+
+.table th .desc {
+  background-image: url(/images/arrows_down.png);
+}*/

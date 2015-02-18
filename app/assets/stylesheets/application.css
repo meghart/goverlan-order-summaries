@@ -14,7 +14,7 @@
  *= require_self
  */
 
-#topbar-fixed {
+/*#topbar-fixed {
 	background-color: #181818 !important;
 	height: 60px;
 	position: fixed;
@@ -31,4 +31,30 @@
 }
 .container {
     margin-top: 75px;
+}*/
+
+.navbar-inverse {
+	background-color: #333333 !important;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+	background-color: #4d4d4d !important;
+}
+.navbar-inverse .navbar-nav > li > a {
+	color: #e6e6e6 !important;
+}
+.navbar-inverse .form-control input[type=text] {
+	box-shadow: inset 0 -1px 0 #e6e6e6;
+	-webkit-box-shadow: inset 0 -1px 0 #e6e6e6;
+}
+.navbar-inverse ::-webkit-input-placeholder {
+   color: #ffffff !important;
+}
+.navbar-inverse :-moz-placeholder { /* Firefox 18- */
+   color: #ffffff !important;  
+}
+.navbar-inverse ::-moz-placeholder {  /* Firefox 19+ */
+   color: #ffffff !important;  
+}
+.navbar-inverse :-ms-input-placeholder {  
+   color: #ffffff !important;  
 }
