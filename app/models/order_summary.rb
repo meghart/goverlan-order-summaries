@@ -14,6 +14,6 @@ class OrderSummary < ActiveRecord::Base
         
         #conditions = conditions.join('OR')    
         #self.where(conditions)
-        where("account_name LIKE ? or email LIKE ? or invoice LIKE ? activation LIKE ?", "%#{query}%", "%#{query}%" , "%#{query}%", "%#{query}%")
+        where("account_name LIKE ? or email LIKE ? or invoice LIKE ? or activation LIKE ?", "%#{query}%", "%#{query}%" , "%#{query}%", "%#{query}%")
     end
 end
