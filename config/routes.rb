@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'login/login'
-  
-  get '/auth/:provider/callback', to: 'login#login'
-
-  #root to: 'login#login'
+  get "/auth/auth0/callback" => "auth0#callback"
+  get "/auth/failure" => "auth0#failure"
 
   resources :order_summaries
   root 'order_summaries#index'
