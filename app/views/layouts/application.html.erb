@@ -7,20 +7,6 @@
   <%= csrf_meta_tags %>
   <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/paper/bootstrap.min.css" />
   <link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-  <script src="https://cdn.auth0.com/js/lock-7.0.min.js"></script>
-  <script type="text/javascript">
-    var lock = new Auth0Lock('xgSKjO7S71kO9OBXBYRtzbjBDJP1aB1n', 'app34086970.auth0.com');
-    
-    function signin() {
-      lock.show({
-          callbackURL: 'http://goverlan-order-summaries.herokuapp.com/auth/auth0/callback'
-        , responseType: 'code'
-        , authParams: {
-          scope: 'openid profile'
-        }
-      });
-    }
-  </script>
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -47,9 +33,6 @@
             <%= link_to new_order_summary_path do %>
               &nbsp;<i class="fa fa-plus fa-fw"></i>&nbsp;NEW
             <% end %>
-          </li>
-          <li>
-            <button onclick="signin()">Login</button>
           </li>
         </ul>
         <form class="navbar-form navbar-right" role="search">

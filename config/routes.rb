@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
+  get "login/index"
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
 
   resources :order_summaries
-  root 'order_summaries#index'
+  root 'login#index'
   
   get :send_order_summary_mail, to: 'order_summaries#send_order_summary_mail', as: :send_order_summary_mail
   # The priority is based upon order of creation: first created -> highest priority.

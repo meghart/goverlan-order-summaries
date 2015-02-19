@@ -1,7 +1,8 @@
 class OrderSummariesController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_action :set_order_summary, only: [:show, :edit, :update, :destroy]
-
+  before_action :logged_in_using_omniauth?
+  
   # GET /order_summaries
   # GET /order_summaries.json
   def index
@@ -89,6 +90,14 @@ class OrderSummariesController < ApplicationController
   end
 
   private
+    # Verify user is logged in to view Order Summaries
+    def logged_in_using_omniauth?
+      unless session[:userinfo].present?
+        # Redirect to page that has the login here
+        redirect_to '/login/index'
+      end
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_order_summary
       @order_summary = OrderSummary.find(params[:id])
