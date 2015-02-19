@@ -51,6 +51,5 @@ gem 'will_paginate', '~> 3.0.6'
 
 # for SalesForce integration
 gem 'thin'
-gem 'sinatra'
 gem 'omniauth-salesforce'
 gem 'force'
