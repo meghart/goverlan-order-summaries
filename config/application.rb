@@ -11,12 +11,12 @@ Bundler.require(*Rails.groups)
 
 module Workspace
   class Application < Rails::Application
-     configure do
+     #configure do
       #enable :logging
       #enable :sessions
       #set :show_exceptions, false
-      set :session_secret, ENV['SECRET']
-    end
+      #set :session_secret, ENV['SECRET']
+    #end
   
     use OmniAuth::Builder do
       provider :salesforce, ENV['SALESFORCE_KEY'], ENV['SALESFORCE_SECRET']
