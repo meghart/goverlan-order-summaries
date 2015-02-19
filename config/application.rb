@@ -1,6 +1,8 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+require "sinatra/base"
+require 'force'
 require "omniauth"
 require "omniauth-salesforce"
 
