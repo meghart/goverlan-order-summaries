@@ -49,7 +49,11 @@ gem 'will_paginate', '~> 3.0.6'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# for SalesForce integration
-gem 'thin'
+# Using customized version to fix issue #103 in restforce
+gem 'restforce'
+
+# Use omniauth for handlling OAuth with Salesforce
+gem 'omniauth'
+
+# Add omniauth policy for saleforce
 gem 'omniauth-salesforce'
-gem 'force'
