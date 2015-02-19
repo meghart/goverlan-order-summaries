@@ -18,7 +18,7 @@ module Workspace
       #set :session_secret, ENV['SECRET']
     #end
   
-    use OmniAuth::Builder do
+    Rails.application.config.middleware.use OmniAuth::Builder do
       provider :salesforce, ENV['SALESFORCE_KEY'], ENV['SALESFORCE_SECRET']
     end
   
@@ -72,11 +72,8 @@ module Workspace
       redirect "/auth/salesforce"
     end
   
-    error do
-      "There was an error.  Perhaps you need to re-authenticate to /authenticate ?  Here are the details: " + env['sinatra.error'].name
-    end
   
-    run! if app_file == $0
+    #run! if app_file == $0
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
