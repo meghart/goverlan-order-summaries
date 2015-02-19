@@ -6,10 +6,11 @@
   var lock = new Auth0Lock('xgSKjO7S71kO9OBXBYRtzbjBDJP1aB1n', 'app34086970.auth0.com');
   
   lock.show({
-      container: 'root'
-    , callbackURL: 'http://goverlan-order-summaries.herokuapp.com/auth/auth0/callback'
-    , responseType: 'code'
-    , authParams: {
+      container: 'root',
+      callbackURL: 'http://goverlan-order-summaries.herokuapp.com/auth/auth0/callback',
+      disableSignupAction: true,
+      responseType: 'code',
+      authParams: {
       scope: 'openid profile'
     }
   });
