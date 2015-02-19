@@ -49,3 +49,6 @@ gem 'will_paginate', '~> 3.0.6'
 # Use omniauth for handlling OAuth with Salesforce
 gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
+
+# Memory caching
+gem 'iron_cache_rails'
