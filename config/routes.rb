@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   
   get '/auth/:provider/callback', to: 'login#login'
 
-  root to: 'login#login'
+  #root to: 'login#login'
 
   resources :order_summaries
-  #root 'order_summaries#index'
+  root 'order_summaries#index'
   
   get :send_order_summary_mail, to: 'order_summaries#send_order_summary_mail', as: :send_order_summary_mail
   # The priority is based upon order of creation: first created -> highest priority.
