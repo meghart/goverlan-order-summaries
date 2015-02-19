@@ -49,3 +49,6 @@ gem 'will_paginate', '~> 3.0.6'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# for SalesForce integration
+gem 'omniauth-salesforce'
+gem 'force'
