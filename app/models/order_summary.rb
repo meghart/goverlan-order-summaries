@@ -1,4 +1,6 @@
 class OrderSummary < ActiveRecord::Base
+    has_many :products
+    
     # search query
     def self.search(query)
         return where('FALSE') if query.blank?

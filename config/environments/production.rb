@@ -79,6 +79,8 @@ Rails.application.configure do
   #wwwhisper plugin config
   config.middleware.insert 0, "Rack::WWWhisper"
   
+  OmniAuth.config.full_host = "https://goverlan-order-summaries.herokuapp.com/"
+  
   #display error messages for OmniAuth
   OmniAuth.config.on_failure = Proc.new { |env|
     message_key = env['omniauth.error.type']
