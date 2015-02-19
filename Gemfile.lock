@@ -27,7 +27,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    addressable (2.3.7)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
     coffee-rails (4.0.1)
@@ -59,7 +58,6 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    net-http-persistent (2.9.4)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -80,10 +78,6 @@ GEM
     rack (1.5.2)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rack-wwwhisper (1.1.8)
-      addressable (~> 2.0)
-      net-http-persistent
-      rack (~> 1.0)
     rails (4.1.6)
       actionmailer (= 4.1.6)
       actionpack (= 4.1.6)
@@ -149,7 +143,6 @@ DEPENDENCIES
   omniauth (~> 1.2)
   omniauth-auth0 (~> 1.1)
   pg
-  rack-wwwhisper (~> 1.0)
   rails (= 4.1.6)
   rails_12factor
   sass-rails (~> 4.0.3)

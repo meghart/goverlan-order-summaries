@@ -76,9 +76,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
-  #wwwhisper plugin config
-  config.middleware.insert 0, "Rack::WWWhisper"
-  
   OmniAuth.config.full_host = "https://goverlan-order-summaries.herokuapp.com/"
   
   #display error messages for OmniAuth
