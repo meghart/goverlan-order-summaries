@@ -1,7 +1,6 @@
 class OrderSummariesController < ApplicationController
   helper_method :sort_column, :sort_direction
-  before_action :set_order_summary, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_using_omniauth?
+  before_action :logged_in_using_omniauth?, :set_order_summary, only: [:show, :edit, :update, :destroy]
   
   # GET /order_summaries
   # GET /order_summaries.json
@@ -38,6 +37,11 @@ class OrderSummariesController < ApplicationController
   # GET /order_summaries/1/edit
   def edit
   end
+
+  # GET /order_summaries/login
+  def login
+  end
+  
 
   # POST /order_summaries
   # POST /order_summaries.json
@@ -94,7 +98,7 @@ class OrderSummariesController < ApplicationController
     def logged_in_using_omniauth?
       unless session[:userinfo].present?
         # Redirect to page that has the login here
-        redirect_to '/login/index'
+        redirect_to "/order_summaries/login"
       end
     end
     
