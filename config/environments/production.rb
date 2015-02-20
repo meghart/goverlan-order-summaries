@@ -87,6 +87,6 @@ Rails.application.configure do
   
   #config.action_dispatch.x_sendfile_header = nil # For Heroku
   
-  OmniAuth.config.full_host = "http://goverlan-order-summaries.herokuapp.com"
+  OmniAuth.config.full_host = "https://goverlan-order-summaries.herokuapp.com"
   
 end
