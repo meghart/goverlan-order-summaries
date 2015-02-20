@@ -1,4 +1,4 @@
-<div id="root" style="width: 280px; margin: 40px auto; padding: 10px; border-style: dashed; border-width: 1px;">
+<div id="root" style="width: 280px; margin: 40px auto; padding: 10px;">
     embeded area
 </div>
 <script src="https://cdn.auth0.com/js/lock-7.0.min.js"></script>
@@ -6,9 +6,9 @@
   var lock = new Auth0Lock('xgSKjO7S71kO9OBXBYRtzbjBDJP1aB1n', 'app34086970.auth0.com');
   
   lock.show({
-      container: 'hiw-login-container',
-      disableSignupAction: true,
+      container: 'root',
       callbackURL: 'http://goverlan-order-summaries.herokuapp.com/auth/auth0/callback',
+      disableSignupAction: true,
       responseType: 'code',
       authParams: {
       scope: 'openid profile'
