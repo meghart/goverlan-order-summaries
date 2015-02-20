@@ -149,7 +149,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-  iron_cache_rails
+  iron_cache_rails (~> 0.1.5)
   jbuilder (~> 2.0)
   jquery-rails
   omniauth (~> 1.2)

@@ -51,4 +51,4 @@ gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
 
 # Memory caching
-gem 'iron_cache_rails'
+gem 'iron_cache_rails', '~> 0.1.5'
