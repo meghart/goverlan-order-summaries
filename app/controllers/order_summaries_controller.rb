@@ -1,6 +1,7 @@
 class OrderSummariesController < ApplicationController
   helper_method :sort_column, :sort_direction
-  before_action :set_order_summary, only: [:logged_in_using_omniauth?, :show, :edit, :update, :destroy]
+  before_action :logged_in_using_omniauth?, only: [:index, :new, :show, :edit, :update, :destroy]
+  before_action :set_order_summary, only: [:show, :edit, :update, :destroy]
   
   # GET /order_summaries
   # GET /order_summaries.json
