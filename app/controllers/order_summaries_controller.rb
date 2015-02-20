@@ -26,7 +26,7 @@ class OrderSummariesController < ApplicationController
       
       @order_summary.update(:status => "Sent")
       
-      redirect_to root_path
+      redirect_to "/order_summaries/index"
     end
   end
 
