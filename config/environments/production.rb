@@ -4,7 +4,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.cache_store = :iron_cache
+  config.cache_store = :iron_cache_store, :project_id => '54e671cdc4662500060000b1', :token => '5ffLAHf2WBrrOm3UnGth8SC6P8M'
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
