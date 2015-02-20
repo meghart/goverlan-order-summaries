@@ -1,6 +1,6 @@
 class OrderSummariesController < ApplicationController
   helper_method :sort_column, :sort_direction
-  before_action :logged_in_using_omniauth?, :set_order_summary, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_using_omniauth?#, :set_order_summary, only: [:show, :edit, :update, :destroy]
   
   # GET /order_summaries
   # GET /order_summaries.json
@@ -97,8 +97,14 @@ class OrderSummariesController < ApplicationController
     # Verify user is logged in to view Order Summaries
     def logged_in_using_omniauth?
       unless session[:userinfo].present?
+        if request.original_url == "https://goverlan-order-summaries.herokuapp.com/"
+          #do nothing
+        else
+          flash.now[:warning] = "You must log in to access this site."
+          render 'login'
+        end
         # Redirect to page that has the login here
-        redirect_to "/order_summaries/login"
+        #redirect_to "/order_summaries/login"
       end
     end
     
