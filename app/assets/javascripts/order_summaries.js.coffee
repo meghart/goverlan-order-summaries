@@ -39,11 +39,12 @@ $.rails.confirmed = (link) ->
   $(html).modal()
   $('#confirmationDialog .confirm').on 'click', -> $.rails.confirmed(link)
   
-lock = new Auth0Lock('<%= Rails.application.secrets.auth0_client_id %>', '<%= Rails.application.secrets.auth0_domain %>')
+#lock = new Auth0Lock('<%= Rails.application.secrets.auth0_client_id %>', '<%= Rails.application.secrets.auth0_domain %>')
 
-signin = ->
-  lock.show
-    callbackURL: '<%= Rails.application.secrets.auth0_callback_url %>'
-    responseType: 'code'
-    authParams: scope: 'openid profile'
-  return
+#signin = ->
+  #lock.show
+    #callbackURL: '<%= Rails.application.secrets.auth0_callback_url %>'
+    #disableSignupAction: true,
+    #responseType: 'code'
+    #authParams: scope: 'openid profile'
+  #return

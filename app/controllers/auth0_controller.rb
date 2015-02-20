@@ -5,7 +5,7 @@ class Auth0Controller < ApplicationController
     session[:userinfo] = request.env['omniauth.auth']
 
     # Redirect to the URL you want after successfull auth
-    redirect_to 'order_summaries/index'
+    redirect_to '/order_summaries_index'
   end
 
   def failure

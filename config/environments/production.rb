@@ -90,6 +90,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   
-  #OmniAuth.config.full_host = "http://goverlan-order-summaries.herokuapp.com"
+  OmniAuth.config.full_host = "http://goverlan-order-summaries.herokuapp.com"
   
 end
