@@ -17,6 +17,7 @@ class OrderSummariesController < ApplicationController
   # GET /order_summaries/1
   # GET /order_summaries/1.json
   def show
+    @user = session[:userinfo]
     def send_order_summary_mail
       @order_summary = OrderSummary.find(params[:id])
       
@@ -97,14 +98,14 @@ class OrderSummariesController < ApplicationController
     # Verify user is logged in to view Order Summaries
     def logged_in_using_omniauth?
       unless session[:userinfo].present?
-        if request.original_url == "https://goverlan-order-summaries.herokuapp.com/"
+        render 'login'
+        #if request.original_url == "https://goverlan-order-summaries.herokuapp.com/"
           #do nothing
-        else
-          flash.now[:warning] = "You must log in to access this site."
-          render 'login'
-        end
+        #else
+          #flash.now[:warning] = "You must log in to access this site."
+          #render 'login'
+        #end
         # Redirect to page that has the login here
-        #redirect_to "/order_summaries/login"
       end
     end
     

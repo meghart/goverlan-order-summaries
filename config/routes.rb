@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :products
   end
   
-  get '/order_summaries/login' => 'order_summaries#login'
+  get '/login' => 'order_summaries#login'
   
   root 'order_summaries#login'
   

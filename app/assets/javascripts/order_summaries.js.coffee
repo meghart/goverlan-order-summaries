@@ -1,13 +1,6 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-#$(document).on "ready", ->
-#  alert("it works")
-#  if $("td:contains('Pending')").length
-#    @parent('tr').addClass 'warning'
-#    alert('hello')
-#  else
-#    alert('not found')
 
 $(document).bind 'DOMSubtreeModified', (e) ->
   $('td:contains(\'Pending\')').parent().addClass 'warning'
@@ -45,3 +38,12 @@ $.rails.confirmed = (link) ->
          """
   $(html).modal()
   $('#confirmationDialog .confirm').on 'click', -> $.rails.confirmed(link)
+  
+lock = new Auth0Lock('<%= Rails.application.secrets.auth0_client_id %>', '<%= Rails.application.secrets.auth0_domain %>')
+
+signin = ->
+  lock.show
+    callbackURL: '<%= Rails.application.secrets.auth0_callback_url %>'
+    responseType: 'code'
+    authParams: scope: 'openid profile'
+  return
