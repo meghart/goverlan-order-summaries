@@ -2,16 +2,16 @@ Rails.application.routes.draw do
 
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
-
+  get "/order_summaries/index" => "order_summaries#index"
+  get '/login' => 'order_summaries#login'
+  get :send_order_summary_mail, to: 'order_summaries#send_order_summary_mail', as: :send_order_summary_mail
+  
+  root 'order_summaries#login'
+  
   resources :order_summaries do
     resources :products
   end
   
-  get '/login' => 'order_summaries#login'
-  
-  root 'order_summaries#login'
-  
-  get :send_order_summary_mail, to: 'order_summaries#send_order_summary_mail', as: :send_order_summary_mail
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
