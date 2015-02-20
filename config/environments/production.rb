@@ -4,7 +4,14 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
 
-  config.cache_store = :iron_cache_store, { :project_id => '54e671cdc4662500060000b1', :token => '5ffLAHf2WBrrOm3UnGth8SC6P8M' }
+  config.cache_store = :dalli_store,
+                    (ENV["mc5.dev.ec2.memcachier.com:11211"] || "").split(","),
+                    {:username => ENV["4ac070"],
+                     :password => ENV["3cfec501a6"],
+                     :failover => true,
+                     :socket_timeout => 1.5,
+                     :socket_failure_delay => 0.2
+                    }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -77,6 +84,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  
+  #config.action_dispatch.x_sendfile_header = nil # For Heroku
   
   OmniAuth.config.full_host = "http://goverlan-order-summaries.herokuapp.com"
   

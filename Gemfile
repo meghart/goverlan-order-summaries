@@ -51,4 +51,5 @@ gem 'omniauth', '~> 1.2'
 gem 'omniauth-auth0', '~> 1.1'
 
 # Memory caching
-gem 'iron_cache'
+gem 'dalli'
+gem 'memcachier'

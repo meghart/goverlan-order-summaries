@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
 
-  resources :order_summaries
+  resources :order_summaries do
+    resources :products
+  end
   
   get '/order_summaries/login' => 'order_summaries#login'
   
