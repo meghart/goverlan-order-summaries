@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'products/index'
+
+  get 'products/show'
+
+  get 'products/new'
+
+  get 'products/edit'
+
+  get 'products/delete'
+
   get "/auth/auth0/callback" => "auth0#callback"
   get "/auth/failure" => "auth0#failure"
   get "/order_summaries/index" => "order_summaries#index"

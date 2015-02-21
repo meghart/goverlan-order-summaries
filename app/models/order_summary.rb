@@ -1,5 +1,5 @@
 class OrderSummary < ActiveRecord::Base
-    has_many :products
+    has_and_belongs_to_many :products, :join_table => "order_summaries_products" 
     
     # search query
     def self.search(query)
