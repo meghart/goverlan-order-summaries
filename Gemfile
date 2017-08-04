@@ -53,3 +53,6 @@ gem 'omniauth-auth0', '~> 1.1'
 # Memory caching
 gem 'dalli'
 gem 'memcachier'
+
+# Datadog gem
+gem 'dogstatsd-ruby'
